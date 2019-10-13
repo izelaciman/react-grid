@@ -13,13 +13,12 @@ describe('<Grid />', () => {
     let columns = [{columnHeader: 'Name', columnField: 'name'},{columnHeader: 'Lastname', columnField: 'lastname'}]
     let resp = {data: {count: 2, results: [{name: 'test', lastname: 'something'}, {name: 'test', lastname: 'something'}]}};
     beforeAll(() => {
-
         fetchPersonData =jest.fn().mockImplementation(() => Promise.resolve(resp));
         wrapper = shallow(<Grid dataHandler={fetchPersonData}
             paginationParam={'page'}
             searchParam={'search'}
             columns={columns} />);
-      });
+    });
 
     it('matches snapshot', () => {
       expect(toJson(wrapper)).toMatchSnapshot();
@@ -46,20 +45,4 @@ describe('<Grid />', () => {
         expect(pagination.props().searchParam).toEqual('search');
         expect(typeof pagination.props().searchHandler).toEqual('function');
     });
-
-    // it('renders 2 rows', () => {
-    //   const rows = wrapper.find('table tbody tr');
-    //   expect(rows).toHaveLength(2);
-    // });
-  
-    // it('render 2 columns', function () {
-    //   const columns = wrapper.find('table tbody tr').first().find('td');
-    //   expect(columns).toHaveLength(2);
-    // });
-
-    // it('render is loading', function () {
-    //     wrapper = shallow(<Table data={data} columns={columns} isLoading={true}   />);
-    //     const row = wrapper.find('table tbody tr td');
-    //     expect(row.text()).toEqual('Loding...');
-    //   });
 });
