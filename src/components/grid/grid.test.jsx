@@ -3,7 +3,6 @@ import { shallow, configure } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import Grid from './grid';
-import axios from 'axios';
 
 describe('<Grid />', () => {
 
