@@ -1,10 +1,19 @@
 import React from 'react';
+import axios from 'axios';
 import Grid from './components/grid/grid';
 
+const CancelToken = axios.CancelToken;
+let cancel;
+
 function fetchData(params) {
+  if(cancel !== undefined) {
+    cancel('request cancelled');
+  }
   const querystring = new URLSearchParams(params);
   console.log(querystring.toString());
-  return fetch(`https://swapi.co/api/people/?${querystring.toString()}`).then((res) => res.json());
+  return axios.get(`https://swapi.co/api/people/?${querystring.toString()}`, {
+    cancelToken: new CancelToken(function executor(c) { cancel = c})
+  });
 }
 
 const columns = [{columnHeader: 'Name', columnField:'name'}, 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+import axios from 'axios';
 import Table from './table';
 import Pagination from './pagination';
 import Search from './search';
@@ -9,23 +10,37 @@ export default class grid extends Component {
         this.state = {data: [], count: 0, size: 0, page: 1, search: '', isLoading: true};
     }
     componentDidMount(){
-        this.props.dataHandler(this.buildDataParams()).then((data) => {
-            this.setDataState(data);
-        });
+        this.props.dataHandler(this.buildDataParams()).then((res) => {
+            this.setDataState(res.data);
+        }).catch((thrown) => {
+            console.log('Request error', thrown.message);
+        })
     }
     updateHandler = (event) => {
         if(event.target.name === 'search')  {
             this.setState({page :1, search: event.target.value, isLoading: true}, () => {
-                this.props.dataHandler(this.buildDataParams()).then((data) => {
-                    this.setDataState(data);
-                });
+                this.props.dataHandler(this.buildDataParams()).then((res) => {
+                    this.setDataState(res.data);
+                }).catch((thrown) => {
+                    if(axios.isCancel(thrown)) {
+                        console.log('Request canceled', thrown.message);
+                    } else {
+                        console.log('Request error', thrown.message);
+                    }
+                })
             });
         }
         else if(event.target.name === 'page') {
             this.setState({page: parseInt(event.target.value), isLoading: true}, () => {
-                this.props.dataHandler(this.buildDataParams()).then((data) => {
-                    this.setDataState(data);
-                });
+                this.props.dataHandler(this.buildDataParams()).then((res) => {
+                    this.setDataState(res.data);
+                }).catch((thrown) => {
+                    if(axios.isCancel(thrown)) {
+                        console.log('Request canceled', thrown.message);
+                    } else {
+                        console.log('Request error', thrown.message);
+                    }
+                })
             });
         }
     }
