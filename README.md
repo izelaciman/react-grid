@@ -8,9 +8,10 @@ Pagination, table, and search dumb components are sharing same state through pro
 ## Why I used Bootstrap
 I used traditional bootstrap package for the styling, there is also react based bootstrap library, where components are react components. I thought displaying little bit of css usage would be nicer.  for this example Bootstrap has all the styles needed paginationn, table and form controls therefore I didn't have to write any css. If you would like to see more css I would be happy to discuss during the interview as well I normally use sass :)
 
+## Search Fuctioality known issue
+Currently name search is working on keypress change bind to input onChange with state, so this is making a request for every string user enters, this can be api costly and not preferable, we can solve this issue either adding a cancel to ajax call which is optimal, but I used native fetch functionality and could't find an option for that axios or many ajax libraries has this option. I believe curretly this is not supported in fetch api , other option could be using search button to make one search request. Another option would be using a debounce function where it delays api fetch until user finishes typing. 
 
 ## Example usage of Grid Component 
-
   
 Fetching Data example , this can be customized based on the usage.
 ```
@@ -46,7 +47,7 @@ Grid Example
       />
 ```
 
-#### Component Props
+#### Component Props/Options
   **dataHandler:** Function/event propery and makes a ajax request to the api based on query parameters.  
   **paginationParam:** It's the name of the api query parameter for pagination, it can be customized for different api end points.  
   **searchParam:** It's the name of the api search parameter, it can be customized for different api end points. if user do not provide this parameter search textbox won't be displayed.  
