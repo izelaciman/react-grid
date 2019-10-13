@@ -7,7 +7,7 @@ import Search from './search';
 export default class grid extends Component {
     constructor(props) {
         super(props);
-        this.state = {data: [], count: 0, size: 0, search: ''};
+        this.state = {data: [], count: 0, size: 0, search: '', isLoading: true};
     }
     componentDidMount(){
         this.props.dataHandler().then((data) => {
@@ -15,6 +15,7 @@ export default class grid extends Component {
         });
     }
     searchHandler = (event) => {
+        this.setState({isLoading: true});
         this.setState({search : event.target.value}, () => {
             this.props.searchHandler(this.state.search).then((data) => {
                 this.setDataState(data);
@@ -22,13 +23,23 @@ export default class grid extends Component {
         })
     }
     paginationHandler = (event) => {
+        this.setState({isLoading: true});
         const params = {page: event.target.value, search: this.state.search};
         this.props.paginationHandler(params).then((data) => {
             this.setDataState(data);
         })
     }
     setDataState(data) {
-        this.setState({data: data.results, count: data.count, size: data.results.length});
+        this.setState((state) => {
+            let newState = {...this.state};
+            if(state.count !== data.count){
+                newState.size = data.results.length;
+            } 
+            newState.data = data.results;
+            newState.count = data.count;
+            newState.isLoading = false;
+            return newState;
+        });
     }
     render() {
         return (
@@ -40,7 +51,7 @@ export default class grid extends Component {
                  </div>
                  <div className="row">
                     <div className="col">
-                        <Table data={this.state.data} columns={this.props.columns} />
+                        <Table data={this.state.data} columns={this.props.columns} isLoading={this.state.isLoading} />
                     </div>
                  </div>
                  <div className="row">

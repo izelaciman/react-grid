@@ -1,23 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 
-export default class Pagination extends Component {
-    constructor(props){
-        super(props);
-        this.state = {count: 0, size:0, totalPage: 0};
-    }
-    static getDerivedStateFromProps(props, state) {
-        if (props.count !== state.count) {
-            return {
-                count: props.count,
-                size: props.size
-                };
-        }
-        return [];
-    }
+export default class Pagination extends PureComponent {
+
     calculateTotalPage() {
-        if(this.state.size === 0) return 0;
-        return Math.floor((this.state.count + this.state.size - 1) / this.state.size);
+        if(this.props.size === 0) return 0;
+        return Math.floor((this.props.count + this.props.size - 1) / this.props.size);
     }
     buildPageNumbers() {
         const totalPages = this.calculateTotalPage();
