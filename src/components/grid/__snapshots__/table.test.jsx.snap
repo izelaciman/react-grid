@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> matches snapshot 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th
+        key="0"
+      >
+        Name
+      </th>
+      <th
+        key="1"
+      >
+        Lastname
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      key="0"
+    >
+      <td
+        className="font-weight-bold"
+        key="0"
+      >
+        test
+      </td>
+      <td
+        className=""
+        key="1"
+      >
+        something
+      </td>
+    </tr>
+    <tr
+      key="1"
+    >
+      <td
+        className="font-weight-bold"
+        key="0"
+      >
+        test
+      </td>
+      <td
+        className=""
+        key="1"
+      >
+        something
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

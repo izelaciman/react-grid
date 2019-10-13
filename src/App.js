@@ -1,20 +1,6 @@
 import React from 'react';
-import axios from 'axios';
+import {fetchPersonData} from'./service/swapi';
 import Grid from './components/grid/grid';
-
-const CancelToken = axios.CancelToken;
-let cancel;
-
-function fetchData(params) {
-  if(cancel !== undefined) {
-    cancel('request cancelled');
-  }
-  const querystring = new URLSearchParams(params);
-  console.log(querystring.toString());
-  return axios.get(`https://swapi.co/api/people/?${querystring.toString()}`, {
-    cancelToken: new CancelToken(function executor(c) { cancel = c})
-  });
-}
 
 const columns = [{columnHeader: 'Name', columnField:'name'}, 
                  {columnHeader: 'Hair Color', columnField:'hair_color'},
@@ -27,7 +13,8 @@ const columns = [{columnHeader: 'Name', columnField:'name'},
 function App() {
   return (
     <div className="mt-5">
-      <Grid dataHandler={fetchData}
+      <h1 className="text-center">Star Wars Characters</h1>
+      <Grid dataHandler={fetchPersonData}
             paginationParam={'page'}
             searchParam={'search'}
             columns={columns}

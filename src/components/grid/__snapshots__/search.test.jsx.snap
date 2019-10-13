@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> matches snapshot 1`] = `
+<input
+  className="form-control"
+  id="search"
+  name="search"
+  onChange={[MockFunction]}
+  placeholder="Search by name"
+  type="text"
+/>
+`;

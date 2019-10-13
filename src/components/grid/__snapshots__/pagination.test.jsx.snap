@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination /> matches snapshot 1`] = `
+<nav
+  aria-label="Page navigation example"
+>
+  <ul
+    className="pagination justify-content-center"
+  >
+    <li
+      className="page-item active"
+      key="0"
+    >
+      <button
+        className="page-link"
+        name="page"
+        onClick={[MockFunction]}
+        value={1}
+      >
+        1
+      </button>
+    </li>
+    <li
+      className="page-item "
+      key="1"
+    >
+      <button
+        className="page-link"
+        name="page"
+        onClick={[MockFunction]}
+        value={2}
+      >
+        2
+      </button>
+    </li>
+    <li
+      className="page-item "
+      key="2"
+    >
+      <button
+        className="page-link"
+        name="page"
+        onClick={[MockFunction]}
+        value={3}
+      >
+        3
+      </button>
+    </li>
+    <li
+      className="page-item "
+      key="3"
+    >
+      <button
+        className="page-link"
+        name="page"
+        onClick={[MockFunction]}
+        value={4}
+      >
+        4
+      </button>
+    </li>
+    <li
+      className="page-item "
+      key="4"
+    >
+      <button
+        className="page-link"
+        name="page"
+        onClick={[MockFunction]}
+        value={5}
+      >
+        5
+      </button>
+    </li>
+    <li
+      className="page-item "
+      key="5"
+    >
+      <button
+        className="page-link"
+        name="page"
+        onClick={[MockFunction]}
+        value={6}
+      >
+        6
+      </button>
+    </li>
+    <li
+      className="page-item "
+      key="6"
+    >
+      <button
+        className="page-link"
+        name="page"
+        onClick={[MockFunction]}
+        value={7}
+      >
+        7
+      </button>
+    </li>
+    <li
+      className="page-item "
+      key="7"
+    >
+      <button
+        className="page-link"
+        name="page"
+        onClick={[MockFunction]}
+        value={8}
+      >
+        8
+      </button>
+    </li>
+    <li
+      className="page-item "
+      key="8"
+    >
+      <button
+        className="page-link"
+        name="page"
+        onClick={[MockFunction]}
+        value={9}
+      >
+        9
+      </button>
+    </li>
+  </ul>
+</nav>
+`;
