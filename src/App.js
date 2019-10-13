@@ -3,8 +3,8 @@ import {fetchPersonData} from'./service/swapi';
 import Grid from './components/grid/grid';
 
 const columns = [{columnHeader: 'Name', columnField:'name'}, 
-                 {columnHeader: 'Hair Color', columnField:'hair_color'},
                  {columnHeader: 'Birth Year', columnField:'birth_year'},
+                 {columnHeader: 'Hair Color', columnField:'hair_color'},
                  {columnHeader: 'Height', columnField:'height'},
                  {columnHeader: 'Eye Color', columnField:'eye_color'},
                  {columnHeader: 'Skin Color', columnField:'skin_color'},
