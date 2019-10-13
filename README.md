@@ -2,26 +2,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Why I used react.js
 
-Firstly using create react app, react gives a quick bootstrap project to instantly start developing and prototyping projects. Major reason grid/pagination easly could be component which can be used across whole projects.It'is a good example where we can create multiple components and use seperation of conncerns. Also in grid example I had to lift up the state to share across different components.
-In this case pagination, table, and search are using same state through props controlled by the Grid 
-smart controller/Component where all the child componets come together. For the sake of displaying javascript usage skill, I have implemented all the grid from ground,  otherwise react has tons of different grid component libraries for usage. 
+Firstly using create react app, react gives a quick bootstrap project to instantly start developing and prototyping projects. Major reason grid/pagination easly could be component which can be used across all projects. It is a good practive where we can create multiple components and use seperation of conncerns. Also in this example I used state lift up patterm to share data across different components.
+Pagination, table, and search dumb components are sharing same state through props controlled by the Grid smart controller/Component where all the child componets come together. For the sake of displaying javascript usage skill, I have implemented all the grid from ground, otherwise react has many different grid component libraries for usage. 
 
 ## Why I used Bootstrap
-I used traditional bootstrap package for styling, there is also react based bootstrap library, where components are react components. I thought displaying little bit of css usage would be nicer. Bootstrap has all the styles needed for this example paginationn, table and form controls therefore I didn't have to write any css. If you would like to see more css I would be happy to discuss during the interview as well :)
+I used traditional bootstrap package for the styling, there is also react based bootstrap library, where components are react components. I thought displaying little bit of css usage would be nicer.  for this example Bootstrap has all the styles needed paginationn, table and form controls therefore I didn't have to write any css. If you would like to see more css I would be happy to discuss during the interview as well I normally use sass :)
 
 
-## Example Grid Component Usage
+## Example usage of Grid Component 
 
-1. dataHandler: is an event based propery and  makes a ajax request to the api based on query parameters.
-2. paginationParam: it's the name of the api query parameter for pagination, it can be customized for different api end points.
-3. searchParam:it's the name of the api search parameter, it can be customized for different api end points. if user do not provide this parameter search textbox won't be displayed.
-4. columns: Column structure and headers for generic grid usage for diffrent scenerios.
-
+  
 Fetching Data example , this can be customized based on the usage.
 ```
+// Grid is expecting a promise for parsing the data further
+// Data should contain "results" as Array and "count" as an integer
+// We can improve this as well to be more generic and independent from backend.
 function fetchData(params) {
   const querystring = new URLSearchParams(params);
-  console.log(querystring.toString());
   return fetch(`https://swapi.co/api/people/?${querystring.toString()}`).then((res) => res.json());
 }
 
@@ -29,6 +26,7 @@ function fetchData(params) {
 
 Column structure example
 ```
+// Colum is an array of object which states header name and column name to match with backend.
 const columns = [{columnHeader: 'Name', columnField:'name'}, 
                  {columnHeader: 'Hair Color', columnField:'hair_color'},
                  {columnHeader: 'Birth Year', columnField:'birth_year'},
@@ -40,6 +38,7 @@ const columns = [{columnHeader: 'Name', columnField:'name'},
 
 Grid Example
 ```
+      // Final component and usage
       <Grid dataHandler={fetchData}
             paginationParam={'page'}
             searchParam={'search'}
@@ -47,6 +46,11 @@ Grid Example
       />
 ```
 
+#### Component Props
+  **dataHandler:** Function/event propery and makes a ajax request to the api based on query parameters.  
+  **paginationParam:** It's the name of the api query parameter for pagination, it can be customized for different api end points.  
+  **searchParam:** It's the name of the api search parameter, it can be customized for different api end points. if user do not provide this parameter search textbox won't be displayed.  
+  **columns:** Column structure and headers for generic grid usage for diffrent scenerios.
 
 ## Available Scripts
 
