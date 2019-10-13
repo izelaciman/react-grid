@@ -8,10 +8,10 @@ Pagination, table, and search dumb components are sharing same state through pro
 ## Why I used Bootstrap
 I used traditional bootstrap package for the styling, there is also react based bootstrap library, where components are react components. I thought displaying little bit of css usage would be nicer.  for this example Bootstrap has all the styles needed paginationn, table and form controls therefore I didn't have to write any css. If you would like to see more css I would be happy to discuss during the interview as well I normally use sass :)
 
-## Known issue
-Search could be implemented 2 ways with button click and user typing the input box, I chose input typing method, this can be api costly but I prevent that with cancelling in progress ajax request.  
+## Known issues
+Search could be implemented 2 ways with button click and user typing the input box, I chose input typing method, this can be api costly but I prevent that with cancelling in progress ajax requests.  
 Fixed typing search issues with cancelling axios request if any request is in process.  
-During development, I noticed swapi api sometimes responds really slowly, this has nothing to do with application's performance, You can double check it with browser's network tab if api request is pending or not. It can go up 30 secs sometimes, I believe this is because it's a free api.
+During development, I noticed swapi api sometimes responds really slowly, this has nothing to do with application's performance, You can double check it with browser's network tab if api request is pending or not. It can go up 30 secs sometimes, I believe this is because it's a free api. Also you can track cancelled requests from console.log .
 
 
 ## Example usage of Grid Component 
