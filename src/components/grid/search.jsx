@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-export default class Search extends Component {
-    render() {
-        return (
-            <form class="form-inline">
-                <div class="form-group mx-sm-3 mb-2">
-                    <input type="text" class="form-control" id="search" placeholder="Search" />
-                </div>
-                <button type="submit" class="btn btn-primary mb-2">Search</button>
-            </form>
-        )
-    }
+export default function Search(props) {
+    return (
+        <form className="form-inline">
+            <div className="form-group mx-sm-3 mb-2">
+                <input type="text" onChange={props.searchHandler} className="form-control" id="search" placeholder="Search" />
+            </div>
+        </form>
+    ) 
 }
