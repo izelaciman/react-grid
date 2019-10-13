@@ -3,31 +3,34 @@ import Table from './table';
 import Pagination from './pagination';
 import Search from './search';
 
-
 export default class grid extends Component {
     constructor(props) {
         super(props);
-        this.state = {data: [], count: 0, size: 0, search: '', isLoading: true};
+        this.state = {data: [], count: 0, size: 0, page: 1, search: '', isLoading: true};
     }
     componentDidMount(){
-        this.props.dataHandler().then((data) => {
+        this.props.dataHandler(this.buildDataParams()).then((data) => {
             this.setDataState(data);
         });
     }
-    searchHandler = (event) => {
-        this.setState({isLoading: true});
-        this.setState({search : event.target.value}, () => {
-            this.props.searchHandler(this.state.search).then((data) => {
-                this.setDataState(data);
-            })
-        })
+    updateHandler = (event) => {
+        if(event.target.name === 'search')  {
+            this.setState({page :1, search: event.target.value, isLoading: true}, () => {
+                this.props.dataHandler(this.buildDataParams()).then((data) => {
+                    this.setDataState(data);
+                });
+            });
+        }
+        else if(event.target.name === 'page') {
+            this.setState({page: parseInt(event.target.value), isLoading: true}, () => {
+                this.props.dataHandler(this.buildDataParams()).then((data) => {
+                    this.setDataState(data);
+                });
+            });
+        }
     }
-    paginationHandler = (event) => {
-        this.setState({isLoading: true});
-        const params = {page: event.target.value, search: this.state.search};
-        this.props.paginationHandler(params).then((data) => {
-            this.setDataState(data);
-        })
+    buildDataParams(){
+        return {[this.props.searchParam]: this.state.search, [this.props.paginationParam]: this.state.page}
     }
     setDataState(data) {
         this.setState((state) => {
@@ -44,24 +47,30 @@ export default class grid extends Component {
     render() {
         return (
             <div className="container">
+                {this.props.searchParam &&
                  <div className="row">
                     <div className="col">
-                        <Search searchHandler={this.searchHandler} />
+                        <Search searchHandler={this.updateHandler} searchParam={this.props.searchParam} />
                     </div>
                  </div>
+                }
                  <div className="row">
                     <div className="col">
                         <Table data={this.state.data} columns={this.props.columns} isLoading={this.state.isLoading} />
                     </div>
                  </div>
                  <div className="row">
+                    {!this.state.isLoading &&
                     <div className="col align-self-center">
                         <Pagination 
                             count={this.state.count} 
+                            currentPage={this.state.page}
                             size={this.state.size} 
-                            paginationHandler={this.paginationHandler} 
+                            paginationHandler={this.updateHandler}
+                            paginationParam={this.props.paginationParam}
                         />
                     </div>
+                    }
                  </div>
             </div>
         )

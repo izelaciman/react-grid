@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 
 
 export default class Pagination extends PureComponent {
-
     calculateTotalPage() {
         if(this.props.size === 0) return 0;
         return Math.floor((this.props.count + this.props.size - 1) / this.props.size);
@@ -10,8 +9,8 @@ export default class Pagination extends PureComponent {
     buildPageNumbers() {
         const totalPages = this.calculateTotalPage();
         return [...Array(totalPages)].map((value, index) => 
-        <li className="page-item" key={index}>
-            <button onClick={this.props.paginationHandler} value={index+1} className="page-link" >{index + 1}
+        <li className={`page-item ${this.props.currentPage === index+1 ? "active" : ""}`} key={index}>
+            <button name='page' onClick={this.props.paginationHandler} value={index+1} className="page-link" >{index + 1}
             </button>
         </li> )
     }
