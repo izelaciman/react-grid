@@ -12,7 +12,7 @@ const columns = [{columnHeader: 'Name', columnField:'name'},
 
 function App() {
   return (
-    <div className="mt-5">
+    <div className="mt-2">
       <h1 className="text-center">Star Wars Characters</h1>
       <Grid dataHandler={fetchPersonData}
             paginationParam={'page'}
