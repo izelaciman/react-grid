@@ -21,7 +21,7 @@ export default class Pagination extends PureComponent {
     render() {
         return (
          this.calculateTotalPage() > 1 &&
-            <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation">
                 <ul className="pagination justify-content-center">
                     {this.buildPageNumbers()}      
                 </ul>
