@@ -8,11 +8,15 @@ export default class Pagination extends PureComponent {
     }
     buildPageNumbers() {
         const totalPages = this.calculateTotalPage();
-        return [...Array(totalPages)].map((value, index) => 
-        <li className={`page-item ${this.props.currentPage === index+1 ? "active" : ""}`} key={index}>
-            <button name='page' onClick={this.props.paginationHandler} value={index+1} className="page-link" >{index + 1}
-            </button>
-        </li> )
+        return [...Array(totalPages)].map((value, index) => {
+            const pageNumber = index +1;
+            return (
+                <li className={`page-item ${this.props.currentPage === pageNumber ? "active" : ""}`} key={index}>
+                    <button name='page' onClick={this.props.paginationHandler} value={pageNumber} className="page-link" >{pageNumber}
+                    </button>
+                </li> 
+            )
+        })
     }
     render() {
         return (
