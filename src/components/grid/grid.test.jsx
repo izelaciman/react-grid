@@ -1,12 +1,9 @@
 import React from 'react';
-import { shallow, configure } from 'enzyme';
+import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Adapter from 'enzyme-adapter-react-16';
 import Grid from './grid';
 
 describe('<Grid />', () => {
-
-    configure({adapter: new Adapter()});
     let wrapper;
     let fetchPersonData = '';
     let columns = [{columnHeader: 'Name', columnField: 'name'},{columnHeader: 'Lastname', columnField: 'lastname'}]
