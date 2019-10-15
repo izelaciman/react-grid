@@ -13,7 +13,7 @@ export default class Main extends Component {
     }
     updateHandler = (event) => {
         if(event.target.name === 'search')  {
-            this.setState({page :1, search: event.target.value, isLoading: true},this.apiFetch) 
+            this.setState({page :1, search: event.target.value, isLoading: true},this.apiFetch);
         }
         else if(event.target.name === 'page') {
             this.setState({page: parseInt(event.target.value), isLoading: true},this.apiFetch);
@@ -23,8 +23,8 @@ export default class Main extends Component {
         this.props.dataHandler(this.buildDataParams()).then((res) => {
             this.setDataState(res.data);
         }).catch((thrown) => {
-                console.log('Request error', thrown.message);
-        })         
+            console.log('Request error', thrown.message);
+        });
     }
     buildDataParams(){
         return {[this.props.searchParam]: this.state.search, [this.props.paginationParam]: this.state.page}
