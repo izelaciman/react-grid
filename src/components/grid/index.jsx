@@ -4,7 +4,7 @@ import Table from './table';
 import Pagination from './pagination';
 import Search from './search';
 
-export default class grid extends Component {
+export default class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {data: [], count: 0, size: 0, page: 1, search: '', isLoading: true};

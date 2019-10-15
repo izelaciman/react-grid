@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Grid from './grid';
+import Grid from './';
 
 describe('<Grid />', () => {
     let wrapper;

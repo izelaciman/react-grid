@@ -1,6 +1,6 @@
 import React from 'react';
-import {fetchPersonData} from'./service/swapi';
-import Grid from './components/grid/grid';
+import {fetchPersonData} from'./api/swapi';
+import Grid from './components/grid';
 
 const columns = [{columnHeader: 'Name', columnField:'name'}, 
                  {columnHeader: 'Birth Year', columnField:'birth_year'},
