@@ -1,5 +1,4 @@
 import React, { Component } from 'react'; 
-import axios from 'axios';
 import Table from './table';
 import Pagination from './pagination';
 import Search from './search';
@@ -24,11 +23,7 @@ export default class Main extends Component {
         this.props.dataHandler(this.buildDataParams()).then((res) => {
             this.setDataState(res.data);
         }).catch((thrown) => {
-            if(axios.isCancel(thrown)) {
-                console.log('Request canceled', thrown.message);
-            } else {
                 console.log('Request error', thrown.message);
-            }
         })         
     }
     buildDataParams(){
