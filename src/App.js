@@ -7,8 +7,7 @@ const columns = [{columnHeader: 'Name', columnField:'name'},
                  {columnHeader: 'Hair Color', columnField:'hair_color'},
                  {columnHeader: 'Height', columnField:'height'},
                  {columnHeader: 'Eye Color', columnField:'eye_color'},
-                 {columnHeader: 'Skin Color', columnField:'skin_color'},
-                ]
+                 {columnHeader: 'Skin Color', columnField:'skin_color'}];
 
 function App() {
   return (

@@ -32,12 +32,11 @@ Column structure example
 ```
 // Colum is an array of object which states header name and column name to match with backend.
 const columns = [{columnHeader: 'Name', columnField:'name'}, 
-                 {columnHeader: 'Hair Color', columnField:'hair_color'},
                  {columnHeader: 'Birth Year', columnField:'birth_year'},
+                 {columnHeader: 'Hair Color', columnField:'hair_color'},
                  {columnHeader: 'Height', columnField:'height'},
                  {columnHeader: 'Eye Color', columnField:'eye_color'},
-                 {columnHeader: 'Skin Color', columnField:'skin_color'},
-                ]
+                 {columnHeader: 'Skin Color', columnField:'skin_color'}];
 ```
 
 Grid Example
