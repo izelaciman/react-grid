@@ -58,8 +58,9 @@ const columnMapping = [{columnHeader: 'Name', columnField:'name'},
                  {columnHeader: 'Skin Color', columnField:'skin_color'}];
 ```
 
-**paginationParam:** It's the name of the api query parameter for pagination, it can be customized for different api end points.  
-**searchParam:** It's the name of the api query parameter for search, it can be customized for different api end points.  
+**paginationParam:** Matching name of the api query parameter for pagination, it can be customized for different api end points. 
+   
+**searchParam:** Matching name of the api query parameter for search, it can be customized for different api end points.  
 
 
 ## Available Scripts
