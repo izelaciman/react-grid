@@ -7,9 +7,11 @@ describe('<Grid />', () => {
     let wrapper;
     let fetchPersonData = '';
     let columns = [{columnHeader: 'Name', columnField: 'name'},{columnHeader: 'Lastname', columnField: 'lastname'}]
-    let resp = {data: {count: 2, results: [{name: 'test', lastname: 'something'}, {name: 'test', lastname: 'something'}]}};
+    let data = {count: 2, results: [{name: 'test', lastname: 'something'}, {name: 'test', lastname: 'something'}]};
     beforeAll(() => {
-        fetchPersonData =jest.fn().mockImplementation(() => Promise.resolve(resp));
+        fetchPersonData =jest.fn((params, callback) => {
+                callback(data);
+        });
         wrapper = shallow(<Grid dataHandler={fetchPersonData}
             paginationParam={'page'}
             searchParam={'search'}

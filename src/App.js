@@ -1,13 +1,7 @@
 import React from 'react';
-import {fetchPersonData} from'./api/swapi';
+import {fetchPersonData, columnMapping} from'./api/swapi';
 import Grid from './components/grid';
 
-const columns = [{columnHeader: 'Name', columnField:'name'}, 
-                 {columnHeader: 'Birth Year', columnField:'birth_year'},
-                 {columnHeader: 'Hair Color', columnField:'hair_color'},
-                 {columnHeader: 'Height', columnField:'height'},
-                 {columnHeader: 'Eye Color', columnField:'eye_color'},
-                 {columnHeader: 'Skin Color', columnField:'skin_color'}];
 
 function App() {
   return (
@@ -16,7 +10,7 @@ function App() {
       <Grid dataHandler={fetchPersonData}
             paginationParam={'page'}
             searchParam={'search'}
-            columns={columns}
+            columns={columnMapping}
       />
     </div>
   );
