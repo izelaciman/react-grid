@@ -1,12 +1,3 @@
-
-## Why React.js ?
-
-Using create react app enables a quick bootstrap project to instantly start developing and prototyping projects. Major reason grid/pagination could be a good component example which can be used across all projects. It is a good practice to use components and make sure seperation of conncerns is in place. Also in this example I used state lift up pattern to share data across different components.
-Pagination, table, and search dumb components are sharing same state through props controlled by the Index smart component, this component enables all the child componets come together and share the same state. For the sake of displaying javascript skill, I have implemented all the grid from ground, otherwise react has many different grid component libraries for our disposal. 
-
-## Why Bootstrap ?
-I used traditional bootstrap package for the styling, there is also react based bootstrap library, where usage is based on react components. I thought displaying little bit of css usage would be nicer.  for this example Bootstrap had all the styles I needed such as paginationn, table and form controls therefore I didn't have to write any css. If you would like to see more css I would be happy to discuss further :)
-
 ## Example usage of Grid Component 
 
 ```
@@ -87,6 +78,14 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+## Why React.js ?
+
+Using create react app enables a quick bootstrap project to instantly start developing and prototyping projects. Major reason grid/pagination could be a good component example which can be used across all projects. It is a good practice to use components and make sure seperation of conncerns is in place. Also in this example I used state lift up pattern to share data across different components.
+Pagination, table, and search dumb components are sharing same state through props controlled by the Index smart component, this component enables all the child componets come together and share the same state. For the sake of displaying javascript skill, I have implemented all the grid from ground, otherwise react has many different grid component libraries for our disposal. 
+
+## Why Bootstrap ?
+I used traditional bootstrap package for the styling, there is also react based bootstrap library, where usage is based on react components. I thought displaying little bit of css usage would be nicer.  for this example Bootstrap had all the styles I needed such as paginationn, table and form controls therefore I didn't have to write any css. If you would like to see more css I would be happy to discuss further :)
 
 ## Known issues
 Search could of been implemented at least 2 different ways with button click and user typing. I have chosen input typing method, This is better in terms of UX, but this can be api costly, I prevent that with cancelling in progress ajax requests.  
