@@ -34,7 +34,8 @@ data structure should be a json object containinng results and total count {data
 
 ```
 function fetchPersonData(params, setStateCallBack) {
-    //Build api query parameters with params parameter.
+    //Build api query parameters with params.
+    //Example: https://swapi.co/api/people/?page=1&search=luke
     const querystring = new URLSearchParams(params);
     return axios.get(`https://swapi.co/api/people/?${querystring.toString()}`, {
       cancelToken: new CancelToken(function executor(c) { cancel = c})
