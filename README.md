@@ -55,9 +55,16 @@ const columnMapping = [{columnHeader: 'Name', columnField:'name'},
 
 **paginationParam:** String type    
 Matching name of the api query parameter for pagination, it can be customized for different api end points. 
+
+```
+const paginationParam = 'page';
+```
    
 **searchParam:** String type    
 Matching name of the api query parameter for search, it can be customized for different api end points.  
+```
+const searchParam = 'search';
+```
 
 
 ## Available Scripts
