@@ -16,7 +16,6 @@ Currently only one search field is supported.
 ## Example usage of Grid Component 
 
 ```
-// Final component and usage
 <Grid dataHandler={fetchPersonData}
       paginationParam={'page'}
       searchParam={'search'}
