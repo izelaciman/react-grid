@@ -83,5 +83,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## Known issues
 Search could of been implemented at least 2 different ways with button click and user typing. I have chosen input typing method, This is better in terms of UX, but this can be api costly, I prevent that with cancelling in progress ajax requests.  
+  
 During development, I noticed swapi api sometimes responds really slowly, this has nothing to do with application's performance, You can double check it with browser's network tab if api request is pending or not. It can go up to 30 seconds sometimes, I believe this is because it's a free api. Also you can track cancelled requests from console.log.  
+  
 Currently only one search field is supported.
