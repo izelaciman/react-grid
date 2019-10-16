@@ -25,11 +25,12 @@ Currently only one search field is supported.
 
 ## Component Props
 
-**dataHandler:** function type which expects two parameters parameters
-params: for query building if static data is used it can be ignored, it's optional.
-setStateCallBack: this is a callback function where grid state is updated expects data.
-data structure should be a json object containinng results and total count {data: {}, count:10}  
-
+**dataHandler:** Function type  
+expects two parameters  
+params: for query building if static data is used it can be ignored, it's optional.  
+setStateCallBack: this is a callback function where grid state is updated expects data.  
+Returned data structure should be a json object containinng results and total count.  
+exampleData= {results: [{birth_year:1990,name:'luke',height:180}], count:1}  
 ```
 function fetchPersonData(params, setStateCallBack) {
     //Build api query parameters with params.
@@ -46,7 +47,8 @@ function fetchPersonData(params, setStateCallBack) {
 }
 ```
 
-**columns:** Column fieldnames and header label mapping for diffrent scenerios.  
+**columns:** Object type   
+Column fieldnames and header label mapping for diffrent scenerios.  
 
 ```
 const columnMapping = [{columnHeader: 'Name', columnField:'name'}, 
@@ -57,9 +59,11 @@ const columnMapping = [{columnHeader: 'Name', columnField:'name'},
                  {columnHeader: 'Skin Color', columnField:'skin_color'}];
 ```
 
-**paginationParam:** Matching name of the api query parameter for pagination, it can be customized for different api end points. 
+**paginationParam:** String type    
+Matching name of the api query parameter for pagination, it can be customized for different api end points. 
    
-**searchParam:** Matching name of the api query parameter for search, it can be customized for different api end points.  
+**searchParam:** String type    
+Matching name of the api query parameter for search, it can be customized for different api end points.  
 
 
 ## Available Scripts
