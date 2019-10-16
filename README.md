@@ -26,7 +26,7 @@ Currently only one search field is supported.
 ## Component Props
 
 **dataHandler:** Function type  
-expects two parameters  
+Expects two parameters.  
 params: for query building if static data is used it can be ignored, it's optional.  
 setStateCallBack: this is a callback function where grid state is updated expects data.  
 Returned data structure should be a json object containinng results and total count.  
