@@ -19,8 +19,7 @@ Currently only one search field is supported.
 <Grid dataHandler={fetchPersonData}
       paginationParam={'page'}
       searchParam={'search'}
-      columns={columns}
-/>
+      columns={columns} />
 ```
 
 

@@ -10,8 +10,7 @@ function App() {
       <Grid dataHandler={fetchPersonData}
             paginationParam={'page'}
             searchParam={'search'}
-            columns={columnMapping}
-      />
+            columns={columnMapping} />
     </div>
   );
 }
